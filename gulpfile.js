@@ -11,7 +11,6 @@ var gulp = require('gulp');
 gulp.task('html', function() {
     gulp.src("app/*.html")
         .pipe(gulp.dest('dist/'))
-
 })
 
 
@@ -42,7 +41,6 @@ gulp.task('images', function() {
         .pipe(imagemin({
             verbose: true,
             progressive: true,
-
         }))
         .pipe(gulp.dest( 'dist/images'));
 });
