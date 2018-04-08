@@ -4,13 +4,14 @@ var gulp = require('gulp');
     uglify = require('gulp-uglify');
     imagemin = require('gulp-imagemin');
     concat = require('gulp-concat');
-    browserify = require('gulp-browserify');
+    autoprefixer = require('gulp-autoprefixer');
+
 
 // compile html
 gulp.task('html', function() {
     gulp.src("app/*.html")
         .pipe(gulp.dest('dist/'))
-        //.pipe(refresh(server));
+
 })
 
 
@@ -19,6 +20,10 @@ gulp.task('html', function() {
 gulp.task('styles', function() {
     gulp.src(['app/sass/app.scss'])
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('dist/css'))
 })
@@ -26,7 +31,6 @@ gulp.task('styles', function() {
 // js compile with minification and concat
 gulp.task('scripts', function() {
     gulp.src(['app/js/*.js'])
-        .pipe(browserify())
         .pipe(uglify())
         .pipe(concat('app.min.js'))
         .pipe(gulp.dest('dist/js'))

@@ -1,4 +1,7 @@
-node_modules
-.DS_Store
 .idea
 bundle.*
+.DS_Store
+.sass-cache
+build
+Desktop.ini
+node_modules
