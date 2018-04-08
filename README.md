@@ -14,5 +14,5 @@ Basic template setup with <a href="http://gulpjs.com/" rel="nofollow">gulp</a> .
     <li>Watches for changes html,scss,js,images</li>
 </ul>
 
-
+<br>
 <strong>Note:</strong> I used atom text editor live server. So i did not use gulp  LiveReload . This is very important for your workflow. So you solud use gulp LiveReload if you doesn't use atom live server.
